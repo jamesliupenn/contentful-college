@@ -12,8 +12,8 @@ import { Entry } from 'contentful';
 // we have on Contentful
 export class ContentListComponent implements OnInit {
 
-  private courses: Entry<any>[];
-  private lessons: Entry<any>[];
+  courses: Entry<any>[];
+  lessons: Entry<any>[];
 
   constructor(
     private contentfulService: ContentfulService
