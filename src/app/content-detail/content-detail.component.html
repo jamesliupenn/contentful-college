@@ -1,0 +1,48 @@
+<div>
+	<p *ngIf="lesson">
+		<mat-expansion-panel *ngFor="let module of lesson.fields.modules" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        {{ module.fields.title }}
+		      </mat-panel-title>
+		      <mat-panel-description>
+		      </mat-panel-description>
+		    </mat-expansion-panel-header>
+		    <div markdown *ngFor="let obj of module.fields | keyvalue; let lastItem = last;" >
+		    	<div *ngIf="!lastItem">
+		    	{{ obj.value }}
+			    </div>
+		    </div>
+		</mat-expansion-panel>
+	</p>
+
+	<p *ngIf="course">
+		<mat-expansion-panel (opened)="panelOpenState = true"
+		                       (closed)="panelOpenState = false" [expanded]="true">
+		    <mat-expansion-panel-header>
+		      <mat-panel-title>
+		        {{ course.fields.title }}
+		      </mat-panel-title>
+		      <mat-panel-description>
+		        {{ course.fields.skillLevel }}
+		      </mat-panel-description>
+		    </mat-expansion-panel-header>
+		    <div markdown>
+			    {{ course.fields.description }} 
+			</div>
+
+			<!--Vertical stepper for each lesson-->
+			<mat-vertical-stepper #stepper>
+				<mat-step *ngFor="let lesson of course.fields.lessons" label={{lesson.fields.title}} [completed]="false">
+					<a mat-flat-button color="primary" [routerLink]="['/lessons', lesson.fields.slug]">Go to lesson</a>
+				</mat-step>
+			</mat-vertical-stepper>
+
+		    
+		</mat-expansion-panel>
+
+	</p>
+	<button mat-flat-button color="primary" (click)="goBack()">
+		BACK
+	</button>
+</div>

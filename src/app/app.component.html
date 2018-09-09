@@ -1,0 +1,10 @@
+<mat-toolbar color="accent">
+	<a [routerLink]="['/']">
+	<span class="navbar"> {{ title | uppercase }}</span>
+	</a>
+</mat-toolbar>
+
+<div>
+	<!--Our main app, setting the routers-->
+	<router-outlet></router-outlet>
+</div>

@@ -1,0 +1,22 @@
+div {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+h2 {
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.2em;
+}
+
+mat-card {
+	width: calc((100% - 300px)/2);
+	margin-left: 50px;
+}
+
+mat-card:nth-of-type(2n) {
+	margin-right: 50px;
+}
+
+mat-divider {
+	margin-top: 2em;
+}

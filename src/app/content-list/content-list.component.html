@@ -1,0 +1,36 @@
+<h2> Contentful Courses </h2>
+<div>
+	<mat-card *ngFor="let course of courses">
+		<mat-card-header>
+			<mat-card-title>
+				{{ course.fields.title }}
+			</mat-card-title>
+			<mat-card-subtitle>	
+				{{ course.fields.skillLevel }} level
+			</mat-card-subtitle>
+		</mat-card-header>
+		<mat-card-actions>
+			<a mat-flat-button color="primary" [routerLink]="['/courses', course.fields.slug]">View details</a>
+		</mat-card-actions>
+	</mat-card>
+</div>
+
+<h2> Individual Lessons </h2>
+<div>
+	<mat-card *ngFor="let lesson of lessons">
+		<mat-card-header>
+			<mat-card-title>
+				{{ lesson.fields.title }}
+			</mat-card-title>
+			<mat-card-subtitle>	
+				{{ lesson.fields.modules.length }} sections
+			</mat-card-subtitle>
+		</mat-card-header>
+		<mat-card-actions>
+			<a mat-flat-button color="primary" [routerLink]="['/lessons', lesson.fields.slug]">View details</a>
+		</mat-card-actions>
+	</mat-card>
+	<mat-divider></mat-divider>
+</div>
+
+<mat-divider></mat-divider>
